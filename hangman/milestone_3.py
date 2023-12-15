@@ -2,6 +2,7 @@ import random
 import os
 from hangman_picture import hangman_pic
 
+
 word = ""
 guessed_letters = []
 incorrect_letters = []
@@ -13,7 +14,7 @@ def get_word():
     word = random.choice(word_list)
 
 def get_input():
-    os.system("cls")
+    os.system('cls||clear')
     #print(f"Testing. The chosen word is: {word.capitalize()}")
     while True:
         print(hangman_pic[len(incorrect_letters)])
@@ -23,16 +24,14 @@ def get_input():
         if game_status() == True:
             break
         guess = input("\nPlease enter a letter: ").lower()
-        os.system("cls")
+        os.system('cls||clear')
         check_letter(guess)
 
 def game_status():
     if len(incorrect_letters) >= len(hangman_pic) -1:
-        #os.system("cls")
         print(f"\nYou have lost! The answer was: {word.upper()}")
         return True
     if set(word) == set(guessed_letters):
-        #os.system("cls")
         print(f"\nYou have won!")
         return True
 
